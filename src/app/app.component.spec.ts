@@ -4,7 +4,9 @@ import { AppComponent } from './app.component';
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent],
+      declarations: [
+        AppComponent
+      ],
     }).compileComponents();
   });
 
@@ -14,7 +16,7 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'film-catalog' title`, () => {
+  it(`should have as title 'film-catalog'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('film-catalog');
@@ -24,6 +26,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, film-catalog');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('film-catalog app is running!');
   });
 });

@@ -4,9 +4,9 @@
     <div class="search-block">
 
       <mat-form-field appearance="fill">
-        <mat-label>All</mat-label>
+        <mat-label>All genres</mat-label>
         <mat-select (selectionChange)="onSelect($event)">
-          <mat-option [value]="resetSearch">All</mat-option>
+          <mat-option [value]="resetSearch">All genres</mat-option>
           <mat-option *ngFor="let genre of genreList" [value]="getSelectedGenreID(genre.genre)">{{genre.genre}}</mat-option>
         </mat-select>
       </mat-form-field>
@@ -14,7 +14,7 @@
       <mat-form-field appearance="fill">
         <input matInput type="text"
                class="search"
-               placeholder="Input Name"
+               placeholder="Input film name"
                [(ngModel)]="filmName"
         >
       </mat-form-field>
@@ -26,7 +26,8 @@
                 (click)="modalService.open(film)"></app-film>
     </div>
 
-    <div class="liked-film-tag" *ngIf="isLikedFilm$ | async">Best Film</div>
+    <div class="liked-film-tag" *ngIf="isLikedFilm$ | async">Liked film</div>
     <app-film *ngIf="isLikedFilm$ | async" [film]="getLikedFilm()"></app-film>
     <app-modal *ngIf="modalService.isVisible$ | async" [film]="modalService.clickedFilm" [isLikedFilm$]="isLikedFilm$"></app-modal>
   </div>
+</div>

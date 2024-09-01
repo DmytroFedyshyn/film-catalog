@@ -16,8 +16,8 @@
            [ngClass]="{
         'buttons__like-button': !isLiked(film),
         'buttons__dislike-button': isLiked(film)
-      }">{{ isLiked(film) ? 'Удалить из лучших фильмов' : 'Выбрать лучший фильм'}}</div>
-      <div class="buttons__close-button" (click)="modalService.close()">Закрыть</div>
+      }">{{ isLiked(film) ? 'Dislike this film' : 'Like this film'}}</div>
+      <div class="buttons__close-button" (click)="modalService.close()">Close</div>
     </div>
   </div>
 </div>
