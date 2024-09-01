@@ -43,12 +43,13 @@ export class AppComponent {
     }
   }
 
-  onSelect = ($event: MatSelectChange) => {
-    if ($event.value === this.resetSearch) {
+  onSelect(event: MatSelectChange) {
+    if (event.value === this.resetSearch) {
       this.sortedFilms = this.films;
       return;
     }
-    this.sortedFilms = this.films.filter(film => film.genre.find(genre => genre.toString() === $event.value));
+    this.sortedFilms = this.films.filter(film => 
+      film.genre.find(genre => genre.toString() === event.value));
   }
 
   constructor(public modalService: ModalService) { }

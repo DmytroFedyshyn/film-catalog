@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent } from './app.component'; // Оголошення AppComponent
+import { AppComponent } from './app.component';
 import { FilmComponent } from "./components/film/film.component";
 import { FormsModule } from "@angular/forms";
 import { FilterFilmsPipe } from './pipes/filterFilms.pipe';
@@ -13,7 +13,7 @@ import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
-    AppComponent, // Додаємо AppComponent до декларацій
+    AppComponent,
     FilmComponent,
     FilterFilmsPipe,
     ModalComponent
@@ -28,6 +28,6 @@ import { ModalComponent } from './components/modal/modal.component';
     MatOptionModule
   ],
   providers: [],
-  bootstrap: [AppComponent] // Завантаження AppComponent
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
