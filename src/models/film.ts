@@ -4,4 +4,5 @@ export interface Film {
   year: number
   description: string
   genre: number[]
+  actors: number[]
 }

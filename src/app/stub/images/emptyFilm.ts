@@ -3,5 +3,6 @@ export const emptyFilm = {
   name: '',
   year: 0,
   description: '',
-  genre: [0]
+  genre: [0],
+  actor: [0]
 }

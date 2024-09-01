@@ -1,13 +1,23 @@
 <div class="wrapper">
   <div class="container">
-    <h1 class="title">{{title}}</h1>
+    <h1 class="title">{{ title }}</h1>
+    
+
     <div class="search-block">
 
       <mat-form-field appearance="fill">
         <mat-label>All genres</mat-label>
-        <mat-select (selectionChange)="onSelect($event)">
+        <mat-select (selectionChange)="onSelectGenre($event)">
           <mat-option [value]="resetSearch">All genres</mat-option>
-          <mat-option *ngFor="let genre of genreList" [value]="getSelectedGenreID(genre.genre)">{{genre.genre}}</mat-option>
+          <mat-option *ngFor="let genre of genreList" [value]="getSelectedGenreID(genre.genre)">{{ genre.genre }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>All actors</mat-label>
+        <mat-select (selectionChange)="onSelectActor($event)">
+          <mat-option [value]="resetSearch">All actors</mat-option>
+          <mat-option *ngFor="let actor of actorsList" [value]="actor.id">{{ actor.actor }}</mat-option>
         </mat-select>
       </mat-form-field>
 
@@ -15,8 +25,7 @@
         <input matInput type="text"
                class="search"
                placeholder="Input film name"
-               [(ngModel)]="filmName"
-        >
+               [(ngModel)]="filmName">
       </mat-form-field>
     </div>
 
@@ -26,8 +35,13 @@
                 (click)="modalService.open(film)"></app-film>
     </div>
 
-    <div class="liked-film-tag" *ngIf="isLikedFilm$ | async">Liked film</div>
-    <app-film *ngIf="isLikedFilm$ | async" [film]="getLikedFilm()"></app-film>
-    <app-modal *ngIf="modalService.isVisible$ | async" [film]="modalService.clickedFilm" [isLikedFilm$]="isLikedFilm$"></app-modal>
+    <!-- <div class="liked-film-tag" *ngIf="isLikedFilm$ | async">Liked film</div>
+    <app-film *ngIf="isLikedFilm$ | async" [film]="getLikedFilm()"></app-film> -->
+    
+   
+    <app-modal *ngIf="modalService.isVisible$ | async" 
+               [film]="modalService.clickedFilm" 
+               [isLikedFilm$]="isLikedFilm$">
+    </app-modal>
   </div>
 </div>

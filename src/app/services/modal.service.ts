@@ -13,7 +13,8 @@ export class ModalService {
     name: '',
     year: 0,
     description: '',
-    genre: [0]
+    genre: [0],
+    actors: [0]
   }
 
   open(film: Film) {
