@@ -1,3 +1,4 @@
+// app.component.ts
 import { Component, ChangeDetectorRef, AfterViewInit } from '@angular/core';
 import { Film } from "../models/film";
 import { films } from "./stub/filmsData";
@@ -17,8 +18,8 @@ export class AppComponent implements AfterViewInit {
   resetSearch = 'resetSearch';
   title = 'Film Catalog';
   filmName = '';
-  selectedGenreId = '';
-  selectedActorId = '';
+  selectedGenreId = this.resetSearch;
+  selectedActorId = this.resetSearch;
   films: Film[] = films;
   sortedFilms: Film[] = films;
   genreList = genreList;
@@ -39,7 +40,7 @@ export class AppComponent implements AfterViewInit {
   getSelectedActorID = (actorName: string) => {
     const actorFromList = actorsList.find(el => el.actor === actorName);
     return actorFromList?.id;
-  };
+  }
 
   // getLikedFilm = () => {
   //   const likedFilm = localStorage.getItem('likedFilm');
@@ -58,18 +59,21 @@ export class AppComponent implements AfterViewInit {
   // }
 
   onSelectGenre = ($event: MatSelectChange) => {
-    if ($event.value === this.resetSearch) {
-      this.sortedFilms = this.films;
-      return;
-    }
-    this.sortedFilms = this.films.filter(film => film.genre.find(genre => genre.toString() === $event.value));
-  };
+    this.selectedGenreId = $event.value;
+    this.filterFilms();
+  }
 
   onSelectActor = ($event: MatSelectChange) => {
-    if ($event.value === this.resetSearch) {
-      this.sortedFilms = this.films;
-      return;
-    }
-    this.sortedFilms = this.films.filter(film => film.actors.find(actor => actor.toString() === $event.value));
-  };
+    this.selectedActorId = $event.value;
+    this.filterFilms();
+  }
+
+  filterFilms = () => {
+    this.sortedFilms = this.films.filter(film => {
+      const genreMatch = this.selectedGenreId === this.resetSearch || film.genre.includes(Number(this.selectedGenreId));
+      const actorMatch = this.selectedActorId === this.resetSearch || film.actors.includes(Number(this.selectedActorId));
+
+      return genreMatch && actorMatch;
+    });
+  }
 }
