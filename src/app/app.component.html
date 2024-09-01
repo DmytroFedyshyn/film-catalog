@@ -35,6 +35,10 @@
                 (click)="modalService.open(film)"></app-film>
     </div>
 
+    <div *ngIf="sortedFilms.length === 0" class="no-results">
+      No results
+    </div>
+
     <!-- <div class="liked-film-tag" *ngIf="isLikedFilm$ | async">Liked film</div>
     <app-film *ngIf="isLikedFilm$ | async" [film]="getLikedFilm()"></app-film> -->
     
