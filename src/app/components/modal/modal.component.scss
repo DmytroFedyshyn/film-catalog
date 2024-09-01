@@ -14,7 +14,7 @@
   display: flex;
   gap: 20px;
   width: 756px;
-  height: 256px;
+  height: 286px;
   border-radius: 10px;
   padding: 15px 20px;
   background-color: #fff;
@@ -103,6 +103,13 @@
 
     &:hover {
       background-color: #3F51B510;
+    }
+  }
+
+  @media (forced-colors: active) {
+    .film-card {
+      background-color: Canvas;
+      border-color: CanvasText;
     }
   }
 }

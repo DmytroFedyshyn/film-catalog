@@ -51,3 +51,10 @@
   margin: 0 20px;
 }
 
+@media (forced-colors: active) {
+  .film-card {
+    background-color: Canvas;
+    border-color: CanvasText;
+  }
+}
+
