@@ -5,9 +5,9 @@
 }
 
 .container {
-  width: 1440px;
-  margin: auto;
-  padding-top: 37px;
+  margin: 0 auto;
+  padding-top: 25px;
+  padding-left: 25px;
 }
 
 .title {
@@ -60,5 +60,23 @@
   .film-card {
     background-color: Canvas;
     border-color: CanvasText;
+  }
+}
+
+@media (max-width: 1024px) {
+  .film-container > * {
+    flex: 1 1 calc(33.33% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .film-container > * {
+    flex: 1 1 calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .film-container > * {
+    flex: 1 1 100%;
   }
 }
